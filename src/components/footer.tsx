@@ -1,6 +1,10 @@
+import { Image } from "@yext/pages-components";
+
 const Footer = ({ _site }: any) => {
   return (
-    <img src="https://i.imgur.com/Hq9XDsB.png" className="w-full" alt="" />
+    <div className="pt-6 ">
+      <Image image={_site.c_footer} className="!max-w-none !w-full" />
+    </div>
   );
 };
 

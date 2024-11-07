@@ -1,3 +1,4 @@
+import { Image } from "@yext/pages-components";
 import Cta from "../components/cta";
 
 type Link = {
@@ -35,23 +36,8 @@ const Header = ({ _site }: any) => {
   ));
 
   return (
-    <div className="p-6 flex justify-between items-center w-full max-w-screen-3xl">
-      <img
-        src="https://www.cookchildrens.org/siteassets/images/brand/cook_childrens_standard_spot.svg"
-        alt=""
-        className="w-auto h-20"
-      />
-      <div className="flex gap-8 items-center text-2xl text-primary">
-        {links.map((item: Link, index: any) => (
-          <a
-            href={item.url}
-            key={index}
-            className={`${item.label === "For Patients" ? "hover:underline" : ""}`}
-          >
-            {item.label}
-          </a>
-        ))}
-      </div>
+    <div className="pb-6 ">
+      <Image image={_site.c_header} className="!max-w-none !w-full" />
     </div>
   );
 };

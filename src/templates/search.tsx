@@ -14,7 +14,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath = () => {
-  return `search.html`;
+  return `index.html`;
 };
 
 export const getHeadConfig: GetHeadConfig<
@@ -36,10 +36,15 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-const Search: Template<TemplateRenderProps> = () => {
+const Search: Template<TemplateRenderProps> = ({
+  relativePrefixToRoot,
+  path,
+  document,
+}) => {
+  const { _site } = document;
   return (
     <>
-      <PageLayout>
+      <PageLayout _site={_site}>
         <SearchPage />
       </PageLayout>
     </>

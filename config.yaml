@@ -13,8 +13,10 @@ siteStream:
   source: knowledgeGraph
   fields:
     - name
+    - c_header
+    - c_footer
   localization:
     locales:
       - en
     primary: false
-  entityId: "7089236598532783488"
+  entityId: "4852396202020148858"

@@ -16,7 +16,7 @@ type Props = {
 const PageLayout = ({ _site, children }: Props) => {
   return (
     <div className="min-h-screen">
-      {/* <Header _site={_site} /> */}
+      <Header _site={_site} />
       <div className="py-8">
         <SearchHeadlessProvider searcher={provideHeadless(searchConfig)}>
           {children}
@@ -53,7 +53,7 @@ const PageLayout = ({ _site, children }: Props) => {
             />
           </ChatHeadlessProvider>
         )}
-      {/* <Footer _site={_site}></Footer> */}
+      <Footer _site={_site}></Footer>
     </div>
   );
 };

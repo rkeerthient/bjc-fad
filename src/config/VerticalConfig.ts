@@ -102,7 +102,7 @@ export const VerticalConfig: VerticalProps[] = [
   //   verticalKey: "faq",
   //   pageType: "standard",
   //   cardType: FAQAccordion,
-  //   universalLimit: 3,
+  //   universalLimit: 5,
   //   verticalLimit: 5,
   // },
   {
@@ -110,21 +110,21 @@ export const VerticalConfig: VerticalProps[] = [
     verticalKey: "healthcare-professional",
     pageType: "professional-custom",
     cardType: ProfessionalStandard,
-    universalLimit: 3,
+    universalLimit: 5,
   },
   {
     label: "Locations",
     verticalKey: "healthcare-facilities",
     pageType: "map",
     cardType: LocationStandard,
-    universalLimit: 3,
+    universalLimit: 5,
   },
   // {
   //   label: "Jobs",
   //   verticalKey: "jobs",
   //   pageType: "standard",
   //   cardType: JobStandard,
-  //   universalLimit: 3,
+  //   universalLimit: 5,
   //   verticalLimit: 5,
   // },
   // {
@@ -132,7 +132,7 @@ export const VerticalConfig: VerticalProps[] = [
   //   verticalKey: "events",
   //   pageType: "standard",
   //   cardType: EventStandard,
-  //   universalLimit: 3,
+  //   universalLimit: 5,
   //   verticalLimit: 5,
   // },
   {
@@ -140,14 +140,14 @@ export const VerticalConfig: VerticalProps[] = [
     verticalKey: "services",
     pageType: "standard",
     cardType: FAQAccordion,
-    universalLimit: 3,
+    universalLimit: 5,
   },
   {
     label: "Content",
     verticalKey: "content",
     pageType: "standard",
     cardType: DocumentStandard,
-    universalLimit: 3,
+    universalLimit: 5,
   },
 ];
 
