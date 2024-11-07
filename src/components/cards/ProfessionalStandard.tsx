@@ -112,7 +112,7 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
                   </span>
                 )}
               </div>
-              <footer className="hidden md:flex  flex-col gap-2 justify-center pt-4 pb-2 items-center uppercase mb-auto ml-auto">
+              <footer className="hidden md:flex  flex-col gap-4 justify-center pt-4 pb-2 items-center uppercase mb-auto ml-auto">
                 {c_primaryCTA && (
                   <Cta cta={c_primaryCTA} ctaType="primaryCta" />
                 )}
