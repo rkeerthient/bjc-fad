@@ -84,7 +84,8 @@ const SearchResults = () => {
       "grid-cols-2": "grid  grid-cols-1 md:grid-cols-2 gap-2",
       "grid-cols-3": "grid  grid-cols-1 md:grid-cols-3 gap-2",
       "grid-cols-4": "grid grid-cols-1 md:grid-cols-4 gap-2 ",
-      standard: "flex flex-col   rounded-md gap-8",
+      standard: "flex flex-col  rounded-md",
+      "professional-custom": "flex flex-col rounded-md gap-8",
     };
     return classesMap[pageType];
   };

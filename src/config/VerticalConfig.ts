@@ -14,6 +14,7 @@ import LocationStandard from "../components/cards/LocationStandard";
 import ProfessionalLocationAndGrid from "../components/cards/ProfessionalLocationAndGrid";
 import ProfessionalStandard from "../components/cards/ProfessionalStandard";
 import ProductProminentImage from "../components/cards/ProductProminentImage";
+import DocumentStandard from "../components/cards/DocumentStandard";
 
 export interface GlobalConfigProps {
   accountEnv: "Production" | "Sandbox";
@@ -78,6 +79,7 @@ export interface VerticalProps {
   verticalKey?: string;
   pageType:
     | "grid-cols-2"
+    | "professional-custom"
     | "grid-cols-3"
     | "grid-cols-4"
     | "standard"
@@ -106,7 +108,7 @@ export const VerticalConfig: VerticalProps[] = [
   {
     label: "Professionals",
     verticalKey: "healthcare-professional",
-    pageType: "standard",
+    pageType: "professional-custom",
     cardType: ProfessionalStandard,
     universalLimit: 3,
   },
@@ -134,10 +136,17 @@ export const VerticalConfig: VerticalProps[] = [
   //   verticalLimit: 5,
   // },
   {
-    label: "Products",
+    label: "Services",
     verticalKey: "services",
-    pageType: "grid-cols-3",
-    cardType: ProductProminentImage,
+    pageType: "standard",
+    cardType: FAQAccordion,
+    universalLimit: 3,
+  },
+  {
+    label: "Content",
+    verticalKey: "content",
+    pageType: "standard",
+    cardType: DocumentStandard,
     universalLimit: 3,
   },
 ];

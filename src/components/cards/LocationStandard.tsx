@@ -32,7 +32,7 @@ const LocationStandard: CardComponent<any> = ({
       ref={locationRef}
       onClick={() => setClickedId(id)}
       className={`flex flex-col justify-between border-y p-4 cards  ${
-        hoveredId === id ? "bg-gray-200" : ""
+        hoveredId === id ? "bg-slate-100" : ""
       }`}
       onMouseEnter={() => (setHoveredId(id), setClickedId(""))}
       onMouseLeave={() => (setHoveredId(""), setClickedId(""))}
@@ -53,7 +53,7 @@ const LocationStandard: CardComponent<any> = ({
             >
               {index}
             </span>
-            <h2 className="text-lg">{name}</h2>
+            <h2 className="text-lg md:text-xl">{name}</h2>
           </a>
           {distance && (
             <span className="standardSubTitle italic whitespace-nowrap">

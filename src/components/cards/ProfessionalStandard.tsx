@@ -11,6 +11,7 @@ import { CardProps } from "@yext/search-ui-react";
 import Cta from "../cta";
 import { format_phone } from "../../utils/reusableFunctions";
 import ResponseComponent from "../ResponseComponent";
+import StarRating from "../StarRating";
 
 const ProfessionalStandard = ({ result }: CardProps<any>) => {
   const { name, index, distance } = result;
@@ -26,15 +27,19 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
     c_primaryCTA,
     c_secondaryCTA,
     slug,
-    c_professional,
+    c_location,
     taxonomy_relatedSpecialties,
     acceptingNewPatients,
+    c_cRating,
+    c_noOfVotes,
   } = result.rawData;
+  console.log(JSON.stringify(c_noOfVotes));
+  console.log(JSON.stringify(c_location));
 
   return (
     <article className="border rounded-xl shadow-md flex justify-between  pr-4 text-[#212529] bg-slate-100">
       <section className="px-2 space-y-1 ml-4 flex-1 mt-4">
-        <header className="flex justify-between">
+        <header className="flex justify-start items-center">
           <a
             id={`location-${id}`}
             target="_blank"
@@ -44,8 +49,16 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
           >
             <h2 className="text-xl md:text-3xl">{name}</h2>
           </a>
+          <div className="flex items-center ml-4 -mt-2">
+            <p className="text-xl md:text-2xl text-[#1700ff]">
+              <StarRating selectedStars={c_cRating} />
+              <span className="ml-2">
+                {c_cRating} ({c_noOfVotes})
+              </span>
+            </p>
+          </div>
           {distance && (
-            <span className="standardSubTitle italic mr-4 whitespace-nowrap">
+            <span className="standardSubTitle italic ml-auto whitespace-nowrap">
               {(distance! / 1609.344).toFixed(2)} mi
             </span>
           )}
@@ -111,6 +124,40 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
                     </span>
                   </section>
                 )}
+                {c_location && (
+                  <div className="flex flex-col">
+                    <h3 className="text">
+                      Additional Practice Locations ({c_location.length})
+                    </h3>
+                    {c_location.map((item: any, index: number) => {
+                      const { address, mainPhone } = item;
+                      return (
+                        <article className="" key={index}>
+                          <address className="flex  justify-start font-medium leading-loose items-start   text-secondary not-italic">
+                            <MapPinIcon className="h-4 w-4 mt-2" />
+                            <span className="ml-2">
+                              {address.line1}, {address.city}, {address.region}{" "}
+                              - {address.postalCode}
+                            </span>{" "}
+                            <a className="ml-2" href={getDirections(address)}>
+                              (See Map)
+                            </a>
+                          </address>
+                          {mainPhone && (
+                            <section className="flex  justify-start font-medium leading-loose items-center   text-secondary">
+                              <PhoneIcon className="h-4 w-4" />
+                              <span className="ml-2">
+                                <a href={`tel:${mainPhone}`}>
+                                  {format_phone(mainPhone)}
+                                </a>
+                              </span>
+                            </section>
+                          )}
+                        </article>
+                      );
+                    })}
+                  </div>
+                )}
                 {acceptingNewPatients && (
                   <span className="flex gap-2 items-center px-4 py-1 rounded-full bg-green-100 w-fit">
                     <BsCheckCircle className="h-5 w-5" /> Accepting New Patients{" "}
@@ -118,11 +165,11 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
                 )}
               </div>
               <footer className="hidden md:flex  flex-col gap-4 justify-center pt-4 pb-2 items-center uppercase mb-auto ml-auto">
-                {c_primaryCTA && (
-                  <Cta cta={c_primaryCTA} ctaType="primaryCta" />
-                )}
                 {c_secondaryCTA && (
-                  <Cta cta={c_secondaryCTA} ctaType="secondaryCta" />
+                  <Cta cta={c_secondaryCTA} ctaType="primaryCta" />
+                )}
+                {c_primaryCTA && (
+                  <Cta cta={c_primaryCTA} ctaType="secondaryCta" />
                 )}
               </footer>
             </div>
@@ -130,9 +177,11 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
               <ResponseComponent response={description} showMore={true} />
             )}
             <footer className="flex flex-col md:hidden  gap-2 justify-center pt-4 pb-2 items-center uppercase mb-auto">
-              {c_primaryCTA && <Cta cta={c_primaryCTA} ctaType="primaryCta" />}
               {c_secondaryCTA && (
-                <Cta cta={c_secondaryCTA} ctaType="secondaryCta" />
+                <Cta cta={c_secondaryCTA} ctaType="primaryCta" />
+              )}
+              {c_primaryCTA && (
+                <Cta cta={c_primaryCTA} ctaType="secondaryCta" />
               )}
             </footer>
           </div>
