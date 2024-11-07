@@ -2,6 +2,7 @@ import { LexicalRichText } from "@yext/pages-components";
 import { useState } from "react";
 import Markdown from "react-markdown";
 import { concatClassNames } from "../utils/reusableFunctions";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 
 interface ResponseComponentProps {
   response: any;
@@ -34,15 +35,20 @@ const ClampedContent = ({
       </div>
       {showMore && (
         <button
+          className="block mt-3 text-[#1700ff] font-semibold"
           onClick={toggleLines}
           aria-expanded={showMoreLines}
           aria-controls="response-text"
-          style={{
-            display: "block",
-            marginTop: "10px",
-          }}
         >
-          {showMoreLines ? "Show More >" : "Show Less >"}
+          {showMoreLines ? (
+            <span className="flex items-center">
+              Show More <ChevronDownIcon className="h-6 w-6" />
+            </span>
+          ) : (
+            <span className="flex items-center">
+              Show Less <ChevronUpIcon className="h-6 w-6" />
+            </span>
+          )}
         </button>
       )}
     </section>

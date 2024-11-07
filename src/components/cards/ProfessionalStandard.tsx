@@ -44,6 +44,11 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
           >
             <h2 className="text-xl md:text-3xl">{name}</h2>
           </a>
+          {distance && (
+            <span className="standardSubTitle italic mr-4 whitespace-nowrap">
+              {(distance! / 1609.344).toFixed(2)} mi
+            </span>
+          )}
         </header>
 
         <section className="flex flex-col justify-between  gap-8 pb-2">
