@@ -198,13 +198,11 @@ const SearchResults = () => {
                       sectionHeaderLabel: "!pl-0",
                     }}
                   />
-                  <nav aria-label="Pagination" className=" text-lg">
-                    <Pagination />
-                  </nav>
+
                   <footer aria-label="Geolocation">
                     <Geolocation
                       customCssClasses={{
-                        geolocationContainer: "text-lg",
+                        geolocationContainer: "text-lg mt-8",
                       }}
                     />
                   </footer>

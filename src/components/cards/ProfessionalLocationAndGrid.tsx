@@ -28,7 +28,7 @@ const ProfessionalLocation = ({ result }: CardProps<any>) => {
   useEffect(() => {
     setPageType(
       VerticalConfig.find(
-        (item) => item.verticalKey === "financial-professional"
+        (item) => item.verticalKey === "healthcare-professional"
       )?.pageType || ""
     );
   }, []);

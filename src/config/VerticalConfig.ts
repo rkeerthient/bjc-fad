@@ -151,8 +151,6 @@ export const VerticalConfig: VerticalProps[] = [
   },
 ];
 
-// Configuration options for enabling or disabling features
-
 export const UniversalConfig: VerticalConfigMap<
   Record<string, DefaultRawDataType>
 > = VerticalConfig.reduce(
