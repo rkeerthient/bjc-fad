@@ -106,7 +106,7 @@ export const VerticalConfig: VerticalProps[] = [
   //   verticalLimit: 5,
   // },
   {
-    label: "Professionals",
+    label: "Find-a-Doctor",
     verticalKey: "healthcare-professional",
     pageType: "professional-custom",
     cardType: ProfessionalStandard,
