@@ -369,28 +369,31 @@ const SearchResults = () => {
                         )}
                         {facetsCount >= 1 && (
                           <>
-                            <div className="flex items-center gap-2 !text-neutral text-sm">
-                              <input
-                                checked={!!acceptingPatientsOption?.selected}
-                                onChange={() =>
-                                  handleFacetClick(
-                                    true,
-                                    !acceptingPatientsOption?.selected
-                                  )
-                                }
-                                id="acceptingNewPatients"
-                                name="acceptingNewPatients"
-                                type="checkbox"
-                                aria-describedby="acceptingNewPatients-description"
-                                className="h-4 w-4 rounded border-gray-300  "
-                              />
-                              <label
-                                htmlFor="acceptingNewPatients"
-                                className="mr-2"
-                              >
-                                Accepting New Patients
-                              </label>
-                            </div>
+                            {currentVerticalKey ===
+                              "healthcare-professional" && (
+                              <div className="flex items-center gap-2 !text-neutral text-sm">
+                                <input
+                                  checked={!!acceptingPatientsOption?.selected}
+                                  onChange={() =>
+                                    handleFacetClick(
+                                      true,
+                                      !acceptingPatientsOption?.selected
+                                    )
+                                  }
+                                  id="acceptingNewPatients"
+                                  name="acceptingNewPatients"
+                                  type="checkbox"
+                                  aria-describedby="acceptingNewPatients-description"
+                                  className="h-4 w-4 rounded border-gray-300  "
+                                />
+                                <label
+                                  htmlFor="acceptingNewPatients"
+                                  className="mr-2"
+                                >
+                                  Accepting New Patients
+                                </label>
+                              </div>
+                            )}
                             <Facets
                               customCssClasses={{
                                 facetsContainer: "py-4 w-full text-lg",
