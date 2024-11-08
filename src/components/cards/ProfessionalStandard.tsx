@@ -33,8 +33,6 @@ const ProfessionalStandard = ({ result }: CardProps<any>) => {
     c_cRating,
     c_noOfVotes,
   } = result.rawData;
-  console.log(JSON.stringify(c_noOfVotes));
-  console.log(JSON.stringify(c_location));
 
   return (
     <article className="border rounded-xl shadow-md flex justify-between  pr-4 text-[#212529] bg-slate-100">
