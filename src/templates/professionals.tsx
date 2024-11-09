@@ -74,7 +74,7 @@ const DegreeMap: any = {
   INTERNSHIP: "Internship",
 };
 
-export default function Professional({ document, __meta }: TemplateProps) {
+const Professional = ({ document, __meta }: TemplateProps) => {
   const {
     _site,
     name,
@@ -341,7 +341,7 @@ export default function Professional({ document, __meta }: TemplateProps) {
       </article>
     </PageLayout>
   );
-}
+};
 const processCoordinates = (input1: any[], input2: any): any[] => {
   const coordinatesArray: any[] = [
     ...(input1?.length ? input1.map((item) => item.geocodedCoordinate) : []),
@@ -350,3 +350,5 @@ const processCoordinates = (input1: any[], input2: any): any[] => {
 
   return coordinatesArray;
 };
+
+export default Professional;
