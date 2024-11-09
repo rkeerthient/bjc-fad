@@ -33,12 +33,12 @@ export const config: TemplateConfig = {
       "emails",
       "address",
       "mainPhone",
-      "geocodedCoordinate",
+      "yextDisplayCoordinate",
       "educationList",
       "c_location.name",
       "c_location.address",
       "c_location.mainPhone",
-      "c_location.geocodedCoordinate",
+      "c_location.yextDisplayCoordinate",
       "taxonomy_relatedSpecialties.name",
       "certifications",
       "languages",
@@ -86,7 +86,7 @@ const Professional = ({ document, __meta }: TemplateProps) => {
     educationList,
     c_location,
     taxonomy_relatedSpecialties,
-    geocodedCoordinate,
+    yextDisplayCoordinate,
     certifications,
     languages,
   } = document;
@@ -120,14 +120,14 @@ const Professional = ({ document, __meta }: TemplateProps) => {
           </div>
 
           {educationList && (
-            <article className="px-8 flex flex-col text-lg ">
+            <article className="w-1/3 px-8 flex flex-col text-lg ">
               <h2 className="py-4 uppercase text-xl font-bold">Education</h2>
               {educationList.map((item: any, index: number) => (
                 <div
                   key={index}
                   className="py-1 flex justify-between items-start gap-24"
                 >
-                  <dt className="w-1/4 font-medium text-gray-900">
+                  <dt className="w-2/4 font-medium text-gray-900">
                     {DegreeMap[item.type]}
                   </dt>
                   <dd className="w-full text-gray-700 sm:mt-0">
@@ -139,7 +139,7 @@ const Professional = ({ document, __meta }: TemplateProps) => {
           )}
 
           {educationList && (
-            <article className="px-8 flex flex-col text-lg ">
+            <article className="w-1/3 px-8 flex flex-col text-lg ">
               <h2 className="py-4 uppercase text-xl font-bold">Contact</h2>
               <address className="flex flex-col gap-2">
                 <span className="flex gap-2 items-center not-italic">
@@ -175,9 +175,12 @@ const Professional = ({ document, __meta }: TemplateProps) => {
                 />
               ))}
           </div>
-          {geocodedCoordinate && (
+          {yextDisplayCoordinate && (
             <StaticMap
-              coordinates={processCoordinates(c_location, geocodedCoordinate)}
+              coordinates={processCoordinates(
+                c_location,
+                yextDisplayCoordinate
+              )}
             ></StaticMap>
           )}
         </section>
@@ -214,14 +217,14 @@ const Professional = ({ document, __meta }: TemplateProps) => {
       <article className=" text-[#020f59] bg-slate-100 p-8">
         <section className="pb-16 w-full flex items-start  mx-auto justify-start">
           {educationList && (
-            <article className="px-8 flex flex-col text-lg ">
+            <article className="w-1/2 px-8 flex flex-col text-lg ">
               <h2 className="py-4 uppercase text-xl font-bold">Education</h2>
               {educationList.map((item: any, index: number) => (
                 <div
                   key={index}
                   className="py-1 flex justify-between items-start gap-24"
                 >
-                  <dt className="w-1/4 font-medium text-gray-900">
+                  <dt className="w-2/4 font-medium text-gray-900">
                     {DegreeMap[item.type]}
                   </dt>
                   <dd className="w-full text-gray-700 sm:mt-0">
@@ -233,7 +236,7 @@ const Professional = ({ document, __meta }: TemplateProps) => {
           )}
 
           {certifications && (
-            <article className="px-8 flex flex-col text-lg ">
+            <article className="w-1/2 px-8 flex flex-col text-lg ">
               <h2 className="py-4 uppercase text-xl font-bold">Education</h2>
               {certifications.map((item: any, index: number) => (
                 <div
@@ -247,7 +250,7 @@ const Professional = ({ document, __meta }: TemplateProps) => {
           )}
         </section>
         {languages && (
-          <article className="px-8 flex flex-col text-lg ">
+          <article className="w-1/2 px-8 flex flex-col text-lg ">
             <h2 className="py-4 uppercase text-xl font-bold">Languages</h2>
             {languages.map((item: any, index: number) => (
               <div
@@ -326,25 +329,25 @@ const Professional = ({ document, __meta }: TemplateProps) => {
             </p>
             <p>All were professional and courteous. First visit glad I came!</p>
           </p>
-          <p className="font-bold text-lg">About These Ratings</p>{" "}
-          <p className="text-xl font-light my-8">
-            The BJC Medical Group (BJCMG) partners with an independent survey
-            company, Professional Research Consultants (PRC), to gather feedback
-            directly from patients about their experiences. PRC sends electronic
-            surveys to BJCMG patients following a medical visit, asking them to
-            evaluate different aspects of their care. Once a provider receives
-            at least 30 reviews, responses are calculated by our survey vendor
-            and posted to the provider's profile using a five-star rating
-            system. Read more about our rating system
-          </p>
-        </div>
+        </div>{" "}
+        <p className="font-bold text-lg mt-8">About These Ratings</p>{" "}
+        <p className="text-xl font-light my-8">
+          The BJC Medical Group (BJCMG) partners with an independent survey
+          company, Professional Research Consultants (PRC), to gather feedback
+          directly from patients about their experiences. PRC sends electronic
+          surveys to BJCMG patients following a medical visit, asking them to
+          evaluate different aspects of their care. Once a provider receives at
+          least 30 reviews, responses are calculated by our survey vendor and
+          posted to the provider's profile using a five-star rating system. Read
+          more about our rating system
+        </p>
       </article>
     </PageLayout>
   );
 };
 const processCoordinates = (input1: any[], input2: any): any[] => {
   const coordinatesArray: any[] = [
-    ...(input1?.length ? input1.map((item) => item.geocodedCoordinate) : []),
+    ...(input1?.length ? input1.map((item) => item.yextDisplayCoordinate) : []),
     { latitude: input2.latitude, longitude: input2.longitude },
   ];
 

@@ -11,7 +11,7 @@ const StaticMap = ({ coordinates }: CoordinateProps) => {
   const generateMapUrl = (): string => {
     const baseUrl = "https://maps.googleapis.com/maps/api/staticmap";
     const zoom = 14;
-    const size = "1200x200";
+    const size = "1200x300";
     const maptype = "roadmap";
 
     const markers = coordinates
@@ -26,7 +26,7 @@ const StaticMap = ({ coordinates }: CoordinateProps) => {
 
   return (
     <>
-      <img className="w-full h-1/2" src={generateMapUrl()} alt="" />
+      <img className="w-full h-full" src={generateMapUrl()} alt="" />
     </>
   );
 };
