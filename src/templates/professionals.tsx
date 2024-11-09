@@ -102,9 +102,11 @@ const Professional = ({ document, __meta }: TemplateProps) => {
         </a>
         <section className="flex justify-start">
           <h1 className="text-4xl">{name}</h1>
-          <p className="text-2xl rounded-full border px-4 py-1">
-            {taxonomy_relatedSpecialties.name}
-          </p>
+          {taxonomy_relatedSpecialties && (
+            <p className="text-2xl rounded-full border px-4 py-1">
+              {taxonomy_relatedSpecialties.name}
+            </p>
+          )}
         </section>
         <section className="flex justify-start my-8 gap-4">
           <span className="flex border border-[#020f59] text-xl gap-2 items-center px-4 py-2 rounded-full bg-green-100 w-fit">
