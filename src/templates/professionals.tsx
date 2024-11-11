@@ -126,7 +126,7 @@ const Professional = ({ document, __meta }: TemplateProps) => {
         <section className="pb-16 w-full flex items-start  mx-auto justify-start">
           {headshot && (
             <div className="w-fit">
-              <Image image={headshot} className="!w-fit" />
+              <Image image={headshot} className="!w-[200px] !h-[285px]" />
             </div>
           )}
 
