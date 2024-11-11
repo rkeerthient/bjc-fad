@@ -100,12 +100,19 @@ const Professional = ({ document, __meta }: TemplateProps) => {
         >
           <ChevronLeftIcon className="h-5 w-5" /> Back to search
         </a>
-        <section className="flex justify-start">
+        <section className="flex justify-start gap-2">
           <h1 className="text-4xl">{name}</h1>
           {taxonomy_relatedSpecialties && (
-            <p className="text-2xl rounded-full border px-4 py-1">
-              {taxonomy_relatedSpecialties.name}
-            </p>
+            <div className="flex gap-2">
+              {taxonomy_relatedSpecialties.map((item: any, index: any) => (
+                <p
+                  className="text-2xl rounded-full border border-[#020f59] px-4 py-1"
+                  key={index}
+                >
+                  {item.name}
+                </p>
+              ))}
+            </div>
           )}
         </section>
         <section className="flex justify-start my-8 gap-4">
